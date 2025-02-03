@@ -36,7 +36,7 @@
     {
         "name": "Yamato",
         "hair_color": "Weiss/ unten Grün",
-        "Characteristic_properties": "Oni mässiges ausehen, stark. und sehr nice"
+        "Characteristic_properties": "Stark, Freunde am Leben, Hilfsbereit, hartnäckig, Mitfühlend"
     },
     {
         "name": "Tlipoca",
@@ -76,7 +76,7 @@
     {
         "name": "Raphtalia",
         "hair_color": "Braun",
-        "Characteristic_properties": "**"
+        "Characteristic_properties": "ist ein Halb-Mensch und Halb-Tanuki (auch Raccoon genannt), ist ein Sklave von Naofumi Iwatani"
     },
     {
         "name": "Esdeath",
@@ -87,5 +87,45 @@
         "name": "Kamui Kanna",
         "hair_color": "Weiss",
         "Characteristic_properties": "**"
+    },
+    {
+        "name": "CC",
+        "hair_color": "Grün",
+        "Characteristic_properties": "Egoistisch hohe Ansprüche, Teilnamlosigkeit, Unsterbliche Hexe"
+    },
+    {
+        "name": "Cha Hae In",
+        "hair_color": "Blond",
+        "Characteristic_properties": "Stark, Nase reagiert empfintlich gegen strake Mana Auren, Sportlich, Hilfsbereit"
+    },
+    {
+        "name": "Shuna",
+        "hair_color": "Pink",
+        "Characteristic_properties": "Stark, Gute Handarbeit, Gute Diener, hilfsbereit"
+    },
+    {
+        "name": "Noelle Silva",
+        "hair_color": "Silber",
+        "Characteristic_properties": "Arrogant, Stark, Atammt vom Adel, Tsundere"
+    },
+    {
+        "name": " Maomao",
+        "hair_color": "Grün",
+        "Characteristic_properties": "Liebt Gift zu verspeisen (zum Pronieren), Ist eine Apothekerin, Kann einem Angst machen."
+    },
+    {
+        "name": " Holo",
+        "hair_color": "Braun",
+        "Characteristic_properties": "Erntegöttin, ist ein Wolf, Klug, Selbstbewusst, Angst davor alleine zu sein"
+    },
+    {
+        "name": " Eris",
+        "hair_color": "Rot",
+        "Characteristic_properties": "Stark, Prinzessin, arrogant, egoistisch."
+    },
+    {
+        "name": " Handler One",
+        "hair_color": "Blau",
+        "Characteristic_properties": "Selbstbewust, mitfühlent, seht ihr ziel vor augen, strategisch, schlau"
     }
 ]
