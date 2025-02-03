@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="Cameron Mathis" content="">
+        <title>How to cure Boredom</title>
+        <link href="/CSS/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    </head>
+<body>
+ <h1 ID="title">How to Cure</h1>
+ <h1 id="title_underline">Boredom</h1>
+<div>
+    <nav ID="navbar">
+        <a href="/CSS/about.html">Physik Fakten</a>
+        <a href="/CSS/about.html">Celsius zu Fahrenheit</a>
+        <a href="/CSS/about.html">Random Waifus</a>
+        <a href="/CSS/about.html">Random Bilder</a>
+    </nav>
+</div>
+ <br>
+ <br>
+<p class="title-Paragraph">Wofür ist diese Website?</p>
+<p class="main-paragraph">Diese Website ist dafür da, die Langweile eines Nutzers zu vertreiben. Sollte man also mal kurz warten muss, bspw. bei einem Download o.ä. kann man hier seine Zeit vertreiben. Man kann also
+    <a href="">Physik Fakten</a> lesen, <a href="">Celsius zu Fahrenheit</a> berechnen, <a href="">random Waifus</a> und / oder
+    <a href="">random Bilder</a> anschauen. Auserdem gibt es noch ein paar Extra Features, aber diese dürfen selbst entdeckt werden. Viel Spass beim Erkunden der Website.</p>
+ <br>
+<p class="main-paragraph">Aber hier für deine Augen schonmal ein Dark-Mode Button:</p>
+ <br>
+ <button id="darkModeToggle"><strong>Dark Mode</strong></button>
+<script>
+    const button = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    // Dark Mode aktivieren, wenn bereits gespeichert
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+
+    button.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // Dark Mode Zustand speichern
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+        }
+    });
+</script>
+</body>
+</html>

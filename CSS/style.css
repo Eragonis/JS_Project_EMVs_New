@@ -1,0 +1,62 @@
+body {
+    background-color: rgba(203, 193, 193, 0.82);
+}
+
+#title {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+#title_underline {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: underline;
+}
+
+#navbar {
+    text-align: center;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+
+.title-Paragraph {
+    text-align: center;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+    text-decoration: underline;
+}
+
+.main-paragraph {
+    padding-left: 40px;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+}
+
+body.dark-mode {
+    background-color: rgba(9, 8, 8, 0.74);
+    color: rgba(255, 255, 255, 0.82);
+}
+
+body.dark-mode a {
+    color: rgba(0, 0, 0, 0.82);
+}
+
+button {
+    margin-left: 40px;
+    padding: 10px 20px;
+    border: 2px solid rgba(100, 133, 150, 0.57);
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgba(29, 124, 168, 0.57);
+}

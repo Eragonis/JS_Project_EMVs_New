@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Random</title>
+   <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<header>
+   <button id="darkModeToggle" type="button">Mode</button>
+</header>
+
+<body>
+   <div>
+      <h2>Random Waifu</h2>
+      <p>Drücke den Knopf und erhalte eine <span style="color:#ff33cc">NEUE</span> ワイフ</p>
+      <button id="Waifu" type="button">New Waifu</button>
+      <div id="waifu-container">
+         <!-- Hir Kommt Bild und Text-->
+      </div>
+      <script>
+         let json;
+
+         async function fetchWaifuJson() {
+            const response = await fetch('/Json/waifus.json');
+            json = await response.json();
+         }
+
+         async function setup() {
+            await fetchWaifuJson();
+            console.log(json);
+
+            document.getElementById('Waifu').addEventListener('click', function () {
+               // Random zahl 1 - 25
+               var randomNumber = Math.floor(Math.random() * 17) + 1;
+               // Container, in dem das Bild und der Text angezeigt werden
+               var container = document.getElementById('waifu-container');
+               container.innerHTML = '';
+
+               console.log(randomNumber);
+
+               //nun waifus und text
+
+               container.innerHTML = `<img src="/Image/waifu_${randomNumber}.jpg" width="450" height="770" />`;
+            })
+         }
+
+
+         setup();
+
+      </script>
+      <div>
+         <h3>Random Husbando</h3>
+         <p>Drücke den Knopf und erhalte eine <span style="color:#00ff00">NEUE</span> Husbando</p>
+         <button id="husbando" type="button">New Husbando</button>
+         <div id="husbando-container">
+
+            <!-- Hir Kommt Bild und Text-->
+         </div>
+         <script>
+            let jsons;
+
+            async function fetchHusbandoJson() {
+               const response = await fetch('/Json/husbando.json');
+               jsons = await response.json();
+            }
+
+            async function testing() {
+               await fetchHusbandoJson();
+               console.log(jsons);
+
+               document.getElementById('husbando').addEventListener('click', function () {
+                  // Random zahl 1 - 25
+                  var randomNumbers = Math.floor(Math.random() * 10) + 1;
+                  // Container, in dem das Bild und der Text angezeigt werden
+                  var container = document.getElementById('husbando-container');
+                  container.innerHTML = '';
+
+                  console.log(randomNumbers);
+
+                  //nun waifus und text
+
+                  container.innerHTML = `<img src="/Image/husbando_${randomNumbers}.jpg" width="450" height="770" />`;
+               })
+            }
+
+
+            testing();
+
+
+            /* if (randomNumber === 1) {
+                container.innerHTML = '<img src="/Image/waifu_01.jpg" alt="waifu_01.jpg"><p></p>';
+             } else if (randomNumber === 2) {
+                container.innerHTML = '<img src="/Image/waifu_02.jpg" alt="waifu_02.jpg"><p></p>';
+             } else if (randomNumber === 3) {
+                container.innerHTML = '<img src="/Image/waifu_03.jpg" alt="waifu_03.jpg"><p></p>';
+             } else if (randomNumber === 4) {
+                container.innerHTML = '<img src="/Image/waifu_04.jpg" alt="waifu_04.jpg"><p></p>';
+             } else if (randomNumber === 5) {
+                container.innerHTML = '<img src="/Image/waifu_05.jpg" alt="waifu_05.jpg"><p></p>';
+             } else if (randomNumber === 6) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 7) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 8) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 9) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 10) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 11) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 12) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 13) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 14) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 15) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 16) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 17) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 18) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 19) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 20) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 21) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 22) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 23) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 24) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             } else if (randomNumber === 25) {
+                container.innerHTML = '<img src="" alt=""><p></p>';
+             }*/
+         </script>
+      </div>
+</body>
+
+</html>
