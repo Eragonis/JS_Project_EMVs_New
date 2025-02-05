@@ -1,5 +1,16 @@
 body {
     background-color: rgba(203, 193, 193, 0.82);
+    margin-left: 50px;
+}
+
+.box {
+    border: 3px solid black;
+    border-radius: 10px;
+    filter: brightness(75%);
+}
+
+.center {
+    text-align: center;
 }
 
 #title {
