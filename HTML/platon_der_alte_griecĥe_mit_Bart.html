@@ -77,11 +77,11 @@
 </script>
 
 
-    <h2>Celsius zu Kelvin</h2>
+<h2>Celsius zu Kelvin</h2>
 
 <form id="celsius-kelvin">
     <input type="number" id="celsius-input" placeholder="Celsius"> °C in Kelvin:
-    <output id="kelvin-output"> </output>
+    <output id="kelvin-output"></output>
     <button type="button" id="convert-celsius">Umrechnen</button>
 </form>
 
@@ -89,7 +89,6 @@
     document.getElementById('convert-celsius').addEventListener('click', function () {
         let input = document.getElementById('celsius-input').value;
         let output = document.getElementById('kelvin-output');
-
         if (input === '') {
             output.textContent = 'Bitte eine Zahl eingeben';
         } else {
@@ -102,7 +101,7 @@
 <h2>Kelvin zu Celsius</h2>
 
 <form>
-    <input type="number" id="kelvin-input"> °K in Celsius:
+    <input type="number" id="kelvin-input" placeholder="Kelvin"> °K in Celsius:
     <output id="celsius-output"></output>
     <button type="button" id="convert-kelvin">Umrechnen</button>
 </form>
@@ -112,13 +111,36 @@
         let output = document.getElementById('celsius-output');
         if (input === '') {
             output.textContent = 'Bitte eine Zahl eingeben';
-        }
-        else {
+        } else {
             let celsius = ((parseFloat(input) - 273.15).toFixed(2));
-            document.getElementById('kelvin-output').textContent = `${celsius} K`;
+            document.getElementById('celsius-output').textContent = `${celsius} °C`;
         }
     });
 
 </script>
-    </body>
-    </html>
+
+<h2>Kelvin zu Fahrenheiten</h2>
+
+<form>
+    <input type="number" id="kelvinTwo_input" placeholder="Kelvin"> °K in Fahrenheit:
+    <output id="KelvinTwo_output"></output>
+    <button type="button" id="convert-kelvinTwo">Umrechnen</button>
+</form>
+<script>
+    document.getElementById('convert-kelvinTwo').addEventListener('click', function () {
+        let input = document.getElementById('kelvinTwo_input').value;
+        let output = document.getElementById('kelvinTwo_output');
+        if (input === '') {
+            document.getElementById('KelvinTwo_output').textContent = 'Bitte eine Zahl eingeben';
+        } else {
+            let kelvin = ((parseFloat(input) - 273.15) * 1.8 + 32).toFixed(2);
+            document.getElementById('KelvinTwo_output').textContent = `${kelvin} °K`;
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>
