@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Platon, der alte Grieche mit Bart</title>
+</head>
+<body>
+<h1>Temparatur Konverter</h1>
+<p>Hier kannst du deine Temparaturen in Fahrenheit, Celcius oder in Kelvin umwandeln</p>
+<h2>Fahrenheit zu Celcius</h2>
+
+<form id="fahrenheit>Celcius">
+    <input type="number" id="fahrenheit_1" placeholder="Fahrenheit"> °F in Celcius:
+    <output id="celcius_1"></output>
+    <button type="button" id="submit_0">Umrechnen</button>
+</form>
+
+<script>
+    document.getElementById('submit_0').addEventListener('click', function () {
+        let input = document.getElementById('fahrenheit_1').value;
+        let output = document.getElementById('celcius_1');
+
+        if (input === '') {
+            output.textContent = 'Bitte eine Zahl eingeben';
+        } else {
+            let celsius = ((parseFloat(input) - 32) * 5 / 9).toFixed(2);
+            document.getElementById('celcius_1').textContent = `${celsius} °C`;
+        }
+    });
+</script>
+
+<h2>
+    Fahrenheit zu Kelvin
+</h2>
+
+<form id="fahrenheit>Kelvin">
+    <input type="number" id="fahrenheit_2" placeholder="Fahrenheit"> °F in Kelvin:
+    <output id="kelvin_1"></output>
+    <button type="button" id="submit_1">Umrechnen</button>
+
+</form>
+<script>
+    document.getElementById('submit_1').addEventListener('click', function () {
+        let input = document.getElementById('fahrenheit_2').value;
+        let output = document.getElementById('kelvin_1');
+        if (input === '') {
+            output.textContent = 'Bitte eine Zahl eingeben';
+        } else {
+            let kelvin = ((parseFloat(input) - 32) * 5 / 9 + 273.15).toFixed(2);
+            document.getElementById('kelvin_1').textContent = `${kelvin} °K`
+
+        }
+    });
+
+</script>
+
+<h2>Celsius zu Fahrenheit</h2>
+<form id="celcius>fahrenheit">
+    <input type="number" id="celcius_0" placeholder="Celcius"> °C in Fahrenheit:
+    <output id="fahrenheit_0"></output>
+    <button type="button" id="submit_2">Umrechnen</button>
+
+
+</form>
+<script>
+    document.getElementById('submit_2').addEventListener('click', function () {
+        let input = document.getElementById('celcius_0').value;
+        let output = document.getElementById('fahrenheit_0');
+        if (input === '') {
+            output.textContent = 'Bitte eine Zahl eingeben';
+        } else {
+            let celcius = ((parseFloat(input) * 5 / 9) + 32).toFixed(2);
+            document.getElementById('fahrenheit_0').textContent = `${celcius} °C`
+        }
+    });
+
+</script>
+
+
+    <h2>Celsius zu Kelvin</h2>
+
+<form id="celsius-kelvin">
+    <input type="number" id="celsius-input" placeholder="Celsius"> °C in Kelvin:
+    <output id="kelvin-output"> </output>
+    <button type="button" id="convert-celsius">Umrechnen</button>
+</form>
+
+<script>
+    document.getElementById('convert-celsius').addEventListener('click', function () {
+        let input = document.getElementById('celsius-input').value;
+        let output = document.getElementById('kelvin-output');
+
+        if (input === '') {
+            output.textContent = 'Bitte eine Zahl eingeben';
+        } else {
+            let kelvin = (parseFloat(input) + 273.15).toFixed(2);
+            output.textContent = `${kelvin} K`;
+        }
+    });
+</script>
+
+<h2>Kelvin zu Celsius</h2>
+
+<form>
+    <input type="number" id="kelvin-input"> °K in Celsius:
+    <output id="celsius-output"></output>
+    <button type="button" id="convert-kelvin">Umrechnen</button>
+</form>
+<script>
+    document.getElementById('convert-kelvin').addEventListener('click', function () {
+        let input = document.getElementById('kelvin-input').value;
+        let output = document.getElementById('celsius-output');
+        if (input === '') {
+            output.textContent = 'Bitte eine Zahl eingeben';
+        }
+        else {
+            let celsius = ((parseFloat(input) - 273.15).toFixed(2));
+            document.getElementById('kelvin-output').textContent = `${celsius} K`;
+        }
+    });
+
+</script>
+    </body>
+    </html>
