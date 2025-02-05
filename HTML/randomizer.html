@@ -8,7 +8,37 @@
    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <header>
-   <button id="darkModeToggle" type="button">Mode</button>
+   <button id="darkModeToggle"><strong>Dark Mode</strong></button>
+   <script>
+      const button = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      function updateButtonText() {
+         if (body.classList.contains("dark-mode")) {
+            button.innerHTML = "<strong>Light Mode</strong>";
+         } else {
+            button.innerHTML = "<strong>Dark Mode</strong>";
+         }
+      }
+
+      // Dark Mode aktivieren, wenn bereits gespeichert
+      if (localStorage.getItem("darkMode") === "enabled") {
+         body.classList.add("dark-mode");
+      }
+      updateButtonText();
+
+      button.addEventListener("click", () => {
+         body.classList.toggle("dark-mode");
+
+         // Dark Mode Zustand speichern
+         if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+         } else {
+            localStorage.setItem("darkMode", "disabled");
+         }
+         updateButtonText();
+      });
+   </script>
 </header>
 
 <body>
@@ -29,7 +59,16 @@
 
          async function setup() {
             await fetchWaifuJson();
-            console.log(json);
+            for (let i = 0; i < json.length; i++) {
+               console.group("Waifu " + i);
+               console.log(json[i].name);
+               console.log(json[i].hair_color);
+               console.log(json[i].Characteristic_properties);
+               console.groupEnd();
+            }
+            console.log("json[0].name", json[0].name);
+            console.log("json[0].hair_color", json[0].hair_color);
+            console.log("json[0].Characteristic_properties", json[0].Characteristic_properties);
 
             document.getElementById('Waifu').addEventListener('click', function () {
                // Random zahl 1 - 25
@@ -43,6 +82,9 @@
                //nun waifus und text
 
                container.innerHTML = `<img src="/Image/waifu_${randomNumber}.jpg" width="450" height="770" />`;
+               container.innerHTML += `<p><span style="color:#ff0000">Name: </span>${json[randomNumber - 1].name}</p>`;
+               container.innerHTML += `<p><span style="color:#ff0000">Hair color: </span>${json[randomNumber - 1].hair_color}</p>`;
+               container.innerHTML += `<p><span style="color:#ff0000">Characteristic properties: </span>${json[randomNumber - 1].Characteristic_properties}</p>`;
             })
          }
 
@@ -52,7 +94,7 @@
       </script>
       <div>
          <h3>Random Husbando</h3>
-         <p>Drücke den Knopf und erhalte eine <span style="color:#00ff00">NEUE</span> Husbando</p>
+         <p>Drücke den Knopf und erhalte einen <span style="color:#00ff00">NEUE</span> Husbando</p>
          <button id="husbando" type="button">New Husbando</button>
          <div id="husbando-container">
 
@@ -68,6 +110,13 @@
 
             async function testing() {
                await fetchHusbandoJson();
+               for (let i = 0; i < jsons.length; i++) {
+                  console.group("Husbando " + i);
+                  console.log(jsons[i].name);
+                  console.log(jsons[i].hair_color);
+                  console.log(jsons[i].Characteristic_properties);
+                  console.groupEnd();
+               }
                console.log(jsons);
 
                document.getElementById('husbando').addEventListener('click', function () {
@@ -82,6 +131,9 @@
                   //nun waifus und text
 
                   container.innerHTML = `<img src="/Image/husbando_${randomNumbers}.jpg" width="450" height="770" />`;
+                  container.innerHTML += `<p><span style="color:#ff0000">Name: </span>${jsons[randomNumbers - 1].name}</p>`;
+                  container.innerHTML += `<p><span style="color:#ff0000">Hair color: </span>${jsons[randomNumbers - 1].hair_color}</p>`;
+                  container.innerHTML += `<p><span style="color:#ff0000">Characteristic properties: </span>${jsons[randomNumbers - 1].Characteristic_properties}</p>`;
                })
             }
 
@@ -89,57 +141,6 @@
             testing();
 
 
-            /* if (randomNumber === 1) {
-                container.innerHTML = '<img src="/Image/waifu_01.jpg" alt="waifu_01.jpg"><p></p>';
-             } else if (randomNumber === 2) {
-                container.innerHTML = '<img src="/Image/waifu_02.jpg" alt="waifu_02.jpg"><p></p>';
-             } else if (randomNumber === 3) {
-                container.innerHTML = '<img src="/Image/waifu_03.jpg" alt="waifu_03.jpg"><p></p>';
-             } else if (randomNumber === 4) {
-                container.innerHTML = '<img src="/Image/waifu_04.jpg" alt="waifu_04.jpg"><p></p>';
-             } else if (randomNumber === 5) {
-                container.innerHTML = '<img src="/Image/waifu_05.jpg" alt="waifu_05.jpg"><p></p>';
-             } else if (randomNumber === 6) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 7) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 8) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 9) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 10) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 11) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 12) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 13) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 14) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 15) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 16) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 17) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 18) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 19) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 20) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 21) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 22) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 23) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 24) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             } else if (randomNumber === 25) {
-                container.innerHTML = '<img src="" alt=""><p></p>';
-             }*/
          </script>
       </div>
 </body>
