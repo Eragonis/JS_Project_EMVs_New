@@ -48,10 +48,20 @@ body {
 
 .main-paragraph {
     padding-left: 40px;
+    padding-right: 40px;
     font-style: oblique;
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
     font-size: medium;
+}
+
+.footer-paragraph {
+    padding-left: 40px;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+    text-align: center;
 }
 
 body.dark-mode {
