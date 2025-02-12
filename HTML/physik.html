@@ -7,16 +7,54 @@
     <title>Physik</title>
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
+<a href="/HTML/index.html"><img  class="home" src="/Image/Home/home.png" width="50px" height="50px" ></a> 
+<button id="darkModeToggle"><strong>Dark Mode</strong></button>
+<script>
+   const button = document.getElementById("darkModeToggle");
+   const body = document.body;
 
+   function updateButtonText() {
+      if (body.classList.contains("dark-mode")) {
+         button.innerHTML = "<strong>Light Mode</strong>";
+      } else {
+         button.innerHTML = "<strong>Dark Mode</strong>";
+      }
+   }
+
+   // Dark Mode aktivieren, wenn bereits gespeichert
+   if (localStorage.getItem("darkMode") === "enabled") {
+      body.classList.add("dark-mode");
+   }
+   updateButtonText();
+
+   button.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+
+      // Dark Mode Zustand speichern
+      if (body.classList.contains("dark-mode")) {
+         localStorage.setItem("darkMode", "enabled");
+      } else {
+         localStorage.setItem("darkMode", "disabled");
+      }
+      updateButtonText();
+   });
+</script>
 <body>
     <div id="basic">
         <h1>Physik</h1>
         <script>
-            const archi = 'Archimedes (* um 287 v. Chr. in Syrakus; † 212 v. Chr. ebenda)';
-            `<p><i>Es gibt Dinge, die den meisten Menschen unglaublich erscheinen, die nicht Mathematik studiert
-                haben.</i> <b>${archi}</b></p>`
-                `< p > <i>Die kürzeste Entfernung zwischen zwei Punkten ist eine gerade Linie.</i></p >`
-                `<p><i>Wenn Menschen Flügel hätten würden sie fliegen.</i></p>`
+            const archi = 'Archimedes (* um 287 v. Chr. in Syrakus; † 212 v. Chr. ebenda) griechischer Mathematiker, Physiker und Ingenieur. ';
+            const platon = 'Platón (* 427 v. Chr. in Athen oder Aigina; † 348 v. Chr. in Athen) antiker griechischer Philosoph. '
+
+          // Den HTML-Inhalt richtig hinzufügen
+            document.getElementById('basic').innerHTML += `
+            <p><i>Es gibt Dinge, die den meisten Menschen unglaublich erscheinen, die nicht Mathematik studiert haben.</i> '<b>${archi}</b>'</p>
+                <p><i>Die kürzeste Entfernung zwischen zwei Punkten ist eine gerade Linie.</i>'<b>${archi}</b>'</p>
+                <p><i>Wenn Menschen Flügel hätten, würden sie fliegen.</i>'<b>${archi}</b>'</p>
+                <p><i>Störe meine Kreise nicht! - Original lateinisch: Noli turbare circulos meos! </i>'<b>${archi}</b>'</p>
+                <p><i>Miss alles, was sich messen lässt, und mach alles messbar, was sich nicht messen lässt. </i>'<b>${archi}</b>'</p>
+                <p><i>Ich kenne keinen sicheren Weg zum Erfolg, nur einen zum sicheren Misserfolg-es jedem recht machen zu wollen. </i>'<b>${platon}</b>'</p>
+            `;
         </script>
     </div>
 </body>
