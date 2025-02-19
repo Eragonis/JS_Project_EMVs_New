@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>N-BACK</h1>
+<p id="test"></p>
+
+
+<select name="difficulty" id="difficulty">
+    <option value="1">2-Back</option>
+    <option value="2">3-Back</option>
+    <option value="3">5-Back</option>
+    <option value="4">7-Back</option>
+</select>
+<select name="mode" id="mode">
+    <option value="1">Numbers</option>
+    <option value="2">Letters</option>
+    <option value="3">Grid</option>
+</select>
+<select name="time" id="time">
+    <option class="time" value="1000">1 Second</option>
+    <option class="time" value="3000">3 Seconds</option>
+    <option class="time" value="5000">5 Seconds</option>
+</select>
+
+<button type="button" id="reset">Reset</button>
+<button type="button" id="submit">N-BACK</button>
+<p id="score">Score: </p>
+<script src="../JavaScript/logic.js"></script>
+</body>
+</html>

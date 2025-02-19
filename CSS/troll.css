@@ -1,0 +1,51 @@
+button {
+    background-color: #b494ea;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button.test:hover {
+    transform: rotate(900deg);
+}
+
+button.wegMitDir {
+    background-color: #b494ea;
+
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+button.wegMitDir:hover {
+    transform: translateX(500px);
+    /* Der Button bewegt sich nach oben */
+    opacity: 0;
+    /* Der Button wird unsichtbar */
+}
+
+button.testerei {
+    background-color: #b494ea;
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: top 1.2s ease, left 1.2s ease; /* Hier wird die langsame Bewegung definiert */
+}
+
+button.testerei:hover {
+    animation: none;
+}
+
+img.home {
+    transition: transform 0.3s ease;  
+}
+img.home:hover {
+    transform: rotate(900deg);
+}
+button.troll{
+    background-color: transparent;
+}
+#troll {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 20%;
+}
