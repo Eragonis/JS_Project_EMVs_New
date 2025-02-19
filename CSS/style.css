@@ -64,6 +64,32 @@ body {
     font-weight: bold;
     font-size: medium;
 }
+
+#troll a:link {
+    color: red;
+}
+
+#troll a:hover {
+    color: red;
+}
+
+#troll a:visited {
+    color: red;
+}
+
+#troll a:active {
+    color: red;
+}
+
+#troll {
+    color: red;
+    text-decoration: none;
+    text-align: center;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
 #output {
     padding-left: 40px;
     padding-right: 40px;
