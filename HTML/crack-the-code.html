@@ -10,6 +10,123 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="box">
+    <a href="/HTML/index.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px" alt=""></a>
+    <button id="darkModeToggle"><strong>Dark Mode</strong></button>
+    <h1 ID="title">Crack the Code</h1>
+    <script>
+        const button = document.getElementById("darkModeToggle");
+        const body = document.body;
 
+        function updateButtonText() {
+            if (body.classList.contains("dark-mode")) {
+                button.innerHTML = "<strong>Light Mode</strong>";
+            } else {
+                button.innerHTML = "<strong>Dark Mode</strong>";
+            }
+        }
+
+        // Dark Mode aktivieren, wenn bereits gespeichert
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+        }
+        updateButtonText();
+
+        button.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            // Dark Mode Zustand speichern
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+            updateButtonText();
+        });
+    </script>
+    <p class="main-paragraph">Willkommen zu Crack the Code. Dies ist ein relativ simples Spiel, hier kurz die Spielregeln:
+        <br>
+        <br>
+        1. Geheimer Code: Der Computer generiert eine zufällige Zahlenfolge (z. B. einen 4-stelligen Code). Jede Ziffer liegt zwischen 0 und 9.
+        <br>
+        2. Spieler-Eingabe: Der Spieler gibt seinen Tipp für den geheimen Code ein.
+        <br>
+        3. Rückmeldung: Nach jedem Versuch gibt der Computer eine Rückmeldung:
+        <br>
+        - Richtige Ziffer am richtigen Platz: Der Spieler wird informiert, wenn eine Ziffer korrekt und an der richtigen Stelle ist.
+        <br>
+        - Richtige Ziffer, falscher Platz: Der Spieler wird informiert, wenn eine Ziffer korrekt, aber an der falschen Stelle ist.
+        <br>
+        - Falsche Ziffer: Der Spieler wird informiert, wenn eine Ziffer nicht im Code enthalten ist.
+        <br>
+        4. Versuche: Der Spieler hat eine begrenzte Anzahl an Versuchen, um den Code zu erraten.
+        <br>
+        5. Spiel gewinnen: Der Spieler gewinnt, wenn er den Code innerhalb der erlaubten Versuche korrekt errät.
+        <br>
+        6. Spiel verlieren: Das Spiel endet, wenn der Spieler den Code nicht innerhalb der erlaubten Versuche errät.
+        </p>
+        <br>
+        <br>
+        <p class="main-paragraph">Errate die geheime 3-stellige Zahl (100-999)</p>
+
+        <!-- Eingabefeld -->
+        <input type="number" id="userInput" min="100" max="999">
+    <br>
+    <br>
+        <button onclick="checkGuess()">Versuch starten</button>
+
+        <!-- Hier wird das Ergebnis angezeigt -->
+        <p id="output"></p>
+
+    <script>
+        // Geheimen Code generieren (3-stellige Zahl)
+        let secretCode = Math.floor(Math.random() * 900) + 100;
+        let attempts = 10; // Maximale Versuche
+        console.log("Geheimer Code (zum Debuggen):", secretCode); // Zum Testen
+
+        function checkGuess() {
+            // Eingabe des Nutzers holen
+            let input = document.getElementById("userInput").value;
+            let output = document.getElementById("output");
+
+            // Überprüfen, ob die Eingabe gültig ist
+            if (input < 100 || input > 999 || isNaN(input)) {
+                output.innerText = "Bitte gib eine gültige Zahl zwischen 100 und 999 ein!";
+                return;
+            }
+
+            // Umwandlung in Strings für besseren Vergleich
+            let inputStr = input.toString();
+            let secretStr = secretCode.toString();
+
+            // Falls die Eingabe korrekt ist
+            if (inputStr === secretStr) {
+                output.innerHTML = `🎉 Glückwunsch! Du hast den Code geknackt: ${secretCode}`;
+                return;
+            }
+
+            // Falls die Eingabe falsch ist
+            attempts--;
+            let feedback = "";
+
+            for (let i = 0; i < 3; i++) {
+                if (inputStr[i] === secretStr[i]) {
+                    feedback += `✅ Ziffer ${inputStr[i]} ist an der richtigen Stelle!<br>`;
+                } else if (secretStr.includes(inputStr[i])) {
+                    feedback += `🔄 Ziffer ${inputStr[i]} ist enthalten, aber an der falschen Stelle!<br>`;
+                } else {
+                    feedback += `❌ Ziffer ${inputStr[i]} ist nicht im Code!<br>`;
+                }
+            }
+
+            output.innerHTML = `${feedback} 🔢 Versuche übrig: ${attempts}`;
+
+            // Falls keine Versuche mehr übrig sind
+            if (attempts <= 0) {
+                output.innerHTML = `❌ Du hast verloren! Der Code war: ${secretCode}`;
+            }
+        }
+    </script>
+</div>
 </body>
 </html>
