@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,20 @@
     <link rel="stylesheet" href="/CSS/troll.css">
 </head>
 <header>
-    <a href="/HTML/user_troll.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px"></a>
+    <a href="javascript:void(0)" onclick="playVideo()">
+        <img class="home" src="/Image/Home/home.png" width="50px" height="50px">
+    </a>
+
+    <video id="videoPlayer" width="320" height="240" loop style="visibility: hidden; position: absolute;">
+        <source src="/Image/sound/troll.mp4" type="video/mp4">
+      </video>
+
     <button id="darkModeToggle" class="testerei"><strong>Dark Mode</strong></button>
     <script src="/JavaScript/troll.js"></script>
     <script>
         const button = document.getElementById("darkModeToggle");
         const body = document.body;
-        
+
         function updateButtonText() {
             if (body.classList.contains("dark-mode")) {
                 button.innerHTML = "<strong>Light Mode</strong>";
@@ -22,16 +30,16 @@
                 button.innerHTML = "<strong>Dark Mode</strong>";
             }
         }
-        
+
         // Dark Mode aktivieren, wenn bereits gespeichert
         if (localStorage.getItem("darkMode") === "enabled") {
             body.classList.add("dark-mode");
         }
         updateButtonText();
-  
+
         button.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
-            
+
             // Dark Mode Zustand speichern
             if (body.classList.contains("dark-mode")) {
                 localStorage.setItem("darkMode", "enabled");
@@ -40,30 +48,31 @@
             }
             updateButtonText();
         });
-        </script>
-        <div id="troll">
-            <a href="/HTML/index.html">
-                <button class="troll" ></button>
+    </script>
+    <div id="troll">
+        <a href="/HTML/index.html">
+            <button class="troll"></button>
 
-            </a>
-        </div>
-        <style>
-            #fullscreenMessage {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: rgba(0, 0, 0, 0.7);
-                color: white;
-                padding: 20px;
-                border-radius: 10px;
-                font-size: 20px;
-                text-align: center;
-                cursor: pointer;
-                display: none;
-            }
-        </style>
+        </a>
+    </div>
+    <style>
+        #fullscreenMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
 </header>
+
 <body>
     <div id="fullscreenMessage">Klicke hier, Um eine Magische reise Zu beginnen😊</div>
 
@@ -83,16 +92,17 @@
         }
 
         // Zeige die Nachricht, dass der Benutzer klicken soll
-        window.onload = function() {
+        window.onload = function () {
             document.getElementById('fullscreenMessage').style.display = 'block';
         };
 
         // Wenn der Benutzer auf die Nachricht klickt, gehe in den Vollbildmodus
-        document.getElementById('fullscreenMessage').onclick = function() {
+        document.getElementById('fullscreenMessage').onclick = function () {
             goFullscreen();
             this.style.display = 'none';  // Verstecke die Nachricht nach dem Klick
         };
     </script>
-    
+
 </body>
+
 </html>

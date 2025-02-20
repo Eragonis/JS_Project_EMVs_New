@@ -130,3 +130,8 @@ window.addEventListener('beforeunload', function (e) {
    e.preventDefault();  // Dies ist notwendig, um das Standardverhalten zu verhindern
    e.returnValue = '';   // Einige Browser benötigen dies, um eine Warnung anzuzeigen
 });
+
+function playVideo() {
+   var video = document.getElementById('videoPlayer');
+   video.play(); // Video starten
+ }
