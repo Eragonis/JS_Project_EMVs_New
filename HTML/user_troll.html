@@ -47,8 +47,52 @@
 
             </a>
         </div>
+        <style>
+            #fullscreenMessage {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                font-size: 20px;
+                text-align: center;
+                cursor: pointer;
+                display: none;
+            }
+        </style>
 </header>
 <body>
+    <div id="fullscreenMessage">Klicke hier, Um eine Magische reise Zu beginnen😊</div>
+
+    <div id="notification">Funktioniert nicht!</div>
+
+    <script>
+        function goFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome/Safari
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        // Zeige die Nachricht, dass der Benutzer klicken soll
+        window.onload = function() {
+            document.getElementById('fullscreenMessage').style.display = 'block';
+        };
+
+        // Wenn der Benutzer auf die Nachricht klickt, gehe in den Vollbildmodus
+        document.getElementById('fullscreenMessage').onclick = function() {
+            goFullscreen();
+            this.style.display = 'none';  // Verstecke die Nachricht nach dem Klick
+        };
+    </script>
     
 </body>
 </html>
