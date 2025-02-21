@@ -49,3 +49,21 @@ button.troll{
     margin-left: 50%;
     margin-top: 20%;
 }
+
+body {
+    overflow: hidden; /* Verhindert Scrollen */
+}
+
+        /* Stil für die Benachrichtigung */
+        #notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            display: none;  /* Standardmäßig unsichtbar */
+        }
