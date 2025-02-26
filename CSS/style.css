@@ -9,6 +9,11 @@ body {
     filter: brightness(75%);
 }
 
+.home {
+    height: 75px;
+    width: auto;
+}
+
 .center {
     text-align: center;
 }
@@ -29,6 +34,11 @@ body {
     text-decoration: underline;
 }
 
+#userInput {
+    margin-left: 40px;
+    width: 130px;
+}
+
 #navbar {
     text-align: center;
     font-style: italic;
@@ -47,6 +57,40 @@ body {
 }
 
 .main-paragraph {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#troll a:link {
+    color: red;
+}
+
+#troll a:hover {
+    color: red;
+}
+
+#troll a:visited {
+    color: red;
+}
+
+#troll a:active {
+    color: red;
+}
+
+#troll {
+    color: red;
+    text-decoration: none;
+    text-align: center;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+#output {
     padding-left: 40px;
     padding-right: 40px;
     font-style: oblique;
