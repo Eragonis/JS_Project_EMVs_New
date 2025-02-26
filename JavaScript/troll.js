@@ -145,7 +145,8 @@ if (screen.orientation && screen.orientation.lock) {
 window.addEventListener('beforeunload', function (e) {
    // Browser fordert den Benutzer auf, bevor er die Seite verlässt
    e.preventDefault();  // Dies ist notwendig, um das Standardverhalten zu verhindern
-   e.returnValue = '';   // Einige Browser benötigen dies, um eine Warnung anzuzeigen
+   e.returnValue = '';
+   alert('Nope!');   // Einige Browser benötigen dies, um eine Warnung anzuzeigen
 });
 
 function playVideo() {
