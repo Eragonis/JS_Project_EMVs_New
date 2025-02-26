@@ -66,11 +66,13 @@
             await fetchWaifuJson();
             for (let i = 0; i < json.length; i++) {
                console.group("Waifu " + i);
+               console.log(json[i].img);
                console.log(json[i].name);
                console.log(json[i].hair_color);
                console.log(json[i].Characteristic_properties);
                console.groupEnd();
             }
+            console.log("json[0].img", json[0].img);
             console.log("json[0].name", json[0].name);
             console.log("json[0].hair_color", json[0].hair_color);
             console.log("json[0].Characteristic_properties", json[0].Characteristic_properties);
@@ -86,7 +88,7 @@
 
                //nun waifus und text
 
-               container.innerHTML = `<img src="/Image/waifu_${randomNumber}.jpg" width="450" height="770" />`;
+               container.innerHTML = `<img src="${json[randomNumber - 1].img}" width="450" height="770" />`;
                container.innerHTML += `<p><span style="color:#ff0000">Name: </span>${json[randomNumber - 1].name}</p>`;
                container.innerHTML += `<p><span style="color:#ff0000">Hair color: </span>${json[randomNumber - 1].hair_color}</p>`;
                container.innerHTML += `<p><span style="color:#ff0000">Characteristic properties: </span>${json[randomNumber - 1].Characteristic_properties}</p>`;
@@ -117,6 +119,7 @@
                await fetchHusbandoJson();
                for (let i = 0; i < jsons.length; i++) {
                   console.group("Husbando " + i);
+                  console.log(jsons[i].img);
                   console.log(jsons[i].name);
                   console.log(jsons[i].hair_color);
                   console.log(jsons[i].Characteristic_properties);
@@ -135,7 +138,7 @@
 
                   //nun waifus und text
 
-                  container.innerHTML = `<img src="/Image/husbando_${randomNumbers}.jpg" width="450" height="770" />`;
+                  container.innerHTML = `<img src="${jsons[randomNumbers - 1].img}" width="450" height="770" />`;
                   container.innerHTML += `<p><span style="color:#ff0000">Name: </span>${jsons[randomNumbers - 1].name}</p>`;
                   container.innerHTML += `<p><span style="color:#ff0000">Hair color: </span>${jsons[randomNumbers - 1].hair_color}</p>`;
                   container.innerHTML += `<p><span style="color:#ff0000">Characteristic properties: </span>${jsons[randomNumbers - 1].Characteristic_properties}</p>`;
