@@ -4,27 +4,22 @@ const gridsymbol = "🔴";
 let back = [""]
 let grid = 
 [
+    [
     "","","",
     "","","",
     "","",""
+    ],
+    [
+     "","","",
+     "","","",
+     "","",""
+    ],
+    [
+    "","","",
+    "","","",
+    "","",""
+    ]
 ]
-let back_gridOne =
-[
-"","","",
-"","","",
-"","",""
-];
-let back_gridTwo = [
-"","","",
-"","","",
-"","",""
-];
-let back_gridThree =
-[
-"","","",
-"","","",
-"","",""
-];
 let test = document.getElementById("test");
 let increment = 0;
 let currentScore = 0;
@@ -64,7 +59,7 @@ document.getElementById('mode').addEventListener('change', function(){
                 back.pop();
             }
             
-            let random = letters[Math.floor(Math.random()*numbers.length)]
+            let random = letters[Math.floor(Math.random()*letters.length)]
             test.innerHTML = random;
             back.unshift(random);
             console.log(back);
