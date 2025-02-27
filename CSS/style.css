@@ -65,6 +65,24 @@ body {
     font-size: medium;
 }
 
+#progress {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#clicker_gameplay {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-style: oblique;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+}
+
 #troll a:link {
     color: red;
 }
@@ -106,6 +124,19 @@ body {
     font-weight: bold;
     font-size: medium;
     text-align: center;
+}
+
+.cookie {
+    margin-right: 50%;
+    margin-left: 25%;
+    height: 250px;
+    width: auto;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.cookie:active {
+    transform: scale(0.8);
 }
 
 body.dark-mode {

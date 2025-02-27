@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Cure Cookie Clicker</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="shortcut icon" href="/Image/GIF/anime-rikka-finger-sping.gif" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="box">
+    <a href="/HTML/index.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px" alt=""></a>
+    <h1 ID="title"><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">Cookie Clicker</a></h1>
+</div>
+    <a href="javascript:void(0)" onClick="cookieClick()">
+    <img src="/Image/Cookie_Clicker/Cookie.png" alt="Cookie Clicker" class="cookie">
+    </a>
+    <p class="main-paragraph">Du hast schon <span id="cookies">0</span> Cookies</p>
+    <p id="progress"></p>
+    <p id="clicker_gameplay"></p>
+    <a href="javascript:void(0)" onclick="playVideo()">
+    </a>
+    <video id="videoPlayer" width="600" height="auto" autoplay loop style="visibility: hidden; position: absolute;">
+        <source src="/Image/sound/cookie_clicker_gameplay.mp4" type="video/mp4">
+    </video>
+    <video id="musicPlayer" width="0" height="0" autoplay loop style="visibility: hidden; position: absolute;">
+        <source src="/Image/sound/cookie_clicker_gameplay_music.mp4" type="video/mp4">
+    </video>
+<script>
+    function wait(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function playVideo() {
+        var video = document.getElementById('videoPlayer');
+        video.style.visibility = "visible";
+        video.style.position = "absolute";
+        video.muted = true;
+        video.play(); // Video starten
+    }
+
+    function playMusic() {
+        var music = document.getElementById('musicPlayer');
+        music.volume = 0.25;
+        music.play();
+    }
+
+    let cookies = 0; // Declare cookies globally
+
+    async function cookieClick() {
+        cookies++; // Increment the cookie count
+        console.log(cookies);
+
+        document.getElementById("cookies").innerHTML = cookies;
+
+        if (cookies >= 10) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 10 Cookies";
+
+        }
+        if (cookies >= 25) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 25 Cookies";
+            document.getElementById("clicker_gameplay").innerText = "Cookie Clicker Gameplay:";
+            playVideo();
+        }
+
+        if (cookies >= 50) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 50 Cookies. Ab jetzt wird passiv immer ein Cookie pro Sekunde geklickt";
+            while (true) {
+                await wait(1000);
+                cookies++;
+                document.getElementById("cookies").innerText = cookies;
+            }
+        }
+
+            if (cookies >= 100) {
+                document.getElementById("progress").innerText = "Gratuliere, du hast schon 100 Cookies. Ab jetzt hast du Musik";
+                playMusic();
+        }
+    }
+</script>
+</body>
+</html>
