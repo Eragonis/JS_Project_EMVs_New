@@ -48,36 +48,46 @@
         music.play();
     }
 
-    let cookies = 0; // Declare cookies globally
+    let cookies = 0;
+    let passiveCookieGainActive = false;
 
     async function cookieClick() {
-        cookies++; // Increment the cookie count
+        if (isNaN(cookies)) {
+            cookies = 0;
+        }
+
+        cookies++;
         console.log(cookies);
 
-        document.getElementById("cookies").innerHTML = cookies;
+        document.getElementById("cookies").innerText = cookies;
 
-        if (cookies >= 10) {
-            document.getElementById("progress").innerText = "Gratuliere, du hast schon 10 Cookies";
-
+        // **Neuer Code: Reihenfolge korrigiert**
+        if (cookies >= 100) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 100 Cookies. Ab jetzt hast du Musik";
+            playMusic();
         }
-        if (cookies >= 25) {
+        else if (cookies >= 50) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 50 Cookies. Ab jetzt wird passiv immer ein Cookie pro Sekunde geklickt";
+
+            if (!passiveCookieGainActive) {
+                passiveCookieGainActive = true; // Sicherstellen, dass nur ein Interval läuft
+                setInterval(() => {
+                    if (isNaN(cookies)) {
+                        cookies = 0;
+                    }
+                    cookies++;
+                    console.log(cookies);
+                    document.getElementById("cookies").innerText = cookies;
+                }, 1000);
+            }
+        }
+        else if (cookies >= 25) {
             document.getElementById("progress").innerText = "Gratuliere, du hast schon 25 Cookies";
             document.getElementById("clicker_gameplay").innerText = "Cookie Clicker Gameplay:";
             playVideo();
         }
-
-        if (cookies >= 50) {
-            document.getElementById("progress").innerText = "Gratuliere, du hast schon 50 Cookies. Ab jetzt wird passiv immer ein Cookie pro Sekunde geklickt";
-            while (true) {
-                await wait(1000);
-                cookies++;
-                document.getElementById("cookies").innerText = cookies;
-            }
-        }
-
-            if (cookies >= 100) {
-                document.getElementById("progress").innerText = "Gratuliere, du hast schon 100 Cookies. Ab jetzt hast du Musik";
-                playMusic();
+        else if (cookies >= 10) {
+            document.getElementById("progress").innerText = "Gratuliere, du hast schon 10 Cookies";
         }
     }
 </script>
