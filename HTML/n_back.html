@@ -3,16 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="shortcut icon" href="/Image/GIF/anime-rikka-finger-sping.gif" type="image/x-icon">
+    <link href="/CSS/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<a href="/HTML/index.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px" alt=""></a>
+<button id="darkModeToggle"><strong>Dark Mode</strong></button>
 <h1>N-BACK</h1>
+<script>
+    const button = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    function updateButtonText() {
+        if (body.classList.contains("dark-mode")) {
+            button.innerHTML = "<strong>Light Mode</strong>";
+        } else {
+            button.innerHTML = "<strong>Dark Mode</strong>";
+        }
+    }
+
+    // Dark Mode aktivieren, wenn bereits gespeichert
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+    updateButtonText();
+
+    button.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // Dark Mode Zustand speichern
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+        }
+        updateButtonText();
+    });
+</script>
+
 <p id="test"></p>
 
 
 <select name="mode" id="mode">
     <option value="1">Numbers</option>
     <option value="2">Letters</option>
-    <option value="3">Grid</option>
+
 </select>
 <select name="time" id="time">
     <option class="time" value="1000">1 Second</option>
@@ -25,4 +64,6 @@
 <p id="score">Score: </p>
 <script src="../JavaScript/logic.js"></script>
 </body>
+<script src="/JavaScript/zeitabhaengige_oeffnung.js"></script>
+
 </html>

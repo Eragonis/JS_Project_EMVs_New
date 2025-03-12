@@ -1,4 +1,4 @@
-document.querySelector('button').onclick = function randomsite() {
+
     let randomIndex = Math.floor(Math.random() * 7);  // Use Math.floor for better randomness
     console.log("Selected site index:", randomIndex);
 
@@ -19,4 +19,3 @@ document.querySelector('button').onclick = function randomsite() {
     setTimeout(function() {
         window.open(websites[randomIndex], "_blank");
     }, randomDelay);
-};

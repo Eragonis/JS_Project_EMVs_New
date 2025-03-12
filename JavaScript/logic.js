@@ -71,7 +71,7 @@ document.getElementById('mode').addEventListener('change', function(){
             
         }
             
-        if(pattern === 3){
+      /*  if(pattern === 3){
             
            if(grid.length == 3){
                back.pop();
@@ -82,7 +82,7 @@ document.getElementById('mode').addEventListener('change', function(){
            back.unshift(random);
            console.log(back);
            
-        }      
+        }*/      
         
    
             
