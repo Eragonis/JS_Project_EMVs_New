@@ -152,5 +152,11 @@
         "name": " Handler One",
         "hair_color": "Blau",
         "Characteristic_properties": "Selbstbewust, mitfühlent, seht ihr ziel vor augen, strategisch, schlau"
+    },
+    {
+        "img": "/Image/Waifu/Alya.jpg",
+        "name": "アリサ・ミハイロヴナ・九条",
+        "hair_color": "Silber",
+        "Characteristic_properties": "Süss, Hilfsbereit, Russisches Flirten, 'Я тебя люблю'"
     }
 ]
