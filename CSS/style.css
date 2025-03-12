@@ -156,3 +156,20 @@ button {
     border-radius: 20px;
     background-color: rgba(29, 124, 168, 0.57);
 }
+select{
+    margin-left: 40px;
+    padding: 10px 20px;
+    border: 2px solid rgba(100, 133, 150, 0.57);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(26, 87, 116, 0.57);
+}
+#test{
+    font-size: 48px;
+}
+#nback{
+    font-size: 60px;
+}
+#score{
+    font-size: 36px;
+}
