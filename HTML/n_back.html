@@ -14,23 +14,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="box">
+  
+  <div class="box">
     <a href="/HTML/index.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px" alt=""></a>
     <h1 ID="title">N-Back</h1>
 </div>
+
+<a href="/HTML/index.html"><img class="home" src="/Image/Home/home.png" width="50px" height="50px" alt=""></a>
+<button id="darkModeToggle"><strong>Dark Mode</strong></button>
+<h1>N-BACK</h1>
+<script>
+    const button = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    function updateButtonText() {
+        if (body.classList.contains("dark-mode")) {
+            button.innerHTML = "<strong>Light Mode</strong>";
+        } else {
+            button.innerHTML = "<strong>Dark Mode</strong>";
+        }
+    }
+
+    // Dark Mode aktivieren, wenn bereits gespeichert
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+    updateButtonText();
+
+    button.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // Dark Mode Zustand speichern
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+        }
+        updateButtonText();
+    });
+</script>
+
 <p id="test"></p>
 
 
-<select name="difficulty" id="difficulty">
-    <option value="1">2-Back</option>
-    <option value="2">3-Back</option>
-    <option value="3">5-Back</option>
-    <option value="4">7-Back</option>
-</select>
 <select name="mode" id="mode">
     <option value="1">Numbers</option>
     <option value="2">Letters</option>
-    <option value="3">Grid</option>
+
 </select>
 <select name="time" id="time">
     <option class="time" value="1000">1 Second</option>
@@ -43,4 +73,6 @@
 <p id="score">Score: </p>
 <script src="../JavaScript/logic.js"></script>
 </body>
+<script src="/JavaScript/zeitabhaengige_oeffnung.js"></script>
+
 </html>

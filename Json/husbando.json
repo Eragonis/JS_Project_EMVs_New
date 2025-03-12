@@ -1,54 +1,64 @@
 [
     {
+        "img": "/Image/Husbando/Lorona_Zorro.jpg",
         "name": "Lorona Zorro",
         "hair_color": "Grün",
         "Characteristic_properties": "Starker schwertkämpfer, hat den Traum der beste Schwertkämpfer zu werden. Hat den 3 Schwerter style"
     },
 
     {
+        "img": "/Image/Husbando/Guts.jpg",
         "name": "Guts",
         "hair_color": "Schwarz",
         "Characteristic_properties": "100 Mann schlechter, Schwarzeritter, Drachentöter. Stehr stark. verlohr ein Auge und ein Arm bei der Eclipse"
     },
 
     {
+        "img": "/Image/Husbando/Astolfo.jpg",
         "name": "Astolfo",
         "hair_color": "Rosa",
         "Characteristic_properties": "Ist ein Mann, so ungewönlich aber ja. "
     },
 
     {
+        "img": "/Image/Husbando/Satoru_Gojo.jpg",
         "name": "Satoru Gojo",
         "hair_color": "Weiss",
         "Characteristic_properties": "hat die six eyes. seine Domän ist das Unlimited Void. Sehr stark"
     },
 
     {
+        "img": "/Image/Husbando/Grappler_Baki.jpg",
         "name": "Grappler Baki",
         "hair_color": "Braun",
         "Characteristic_properties": "Stark, hat gegen Yujiro Hanma gekämpft. Sehr stark"
     },
     {
+        "img": "/Image/Husbando/Escanor.jpg",
         "name": "Escanor",
         "hair_color": "Orange",
         "Characteristic_properties": "The One, The Lion Sin of Pride. Sehr stark"
     },
     {
+        "img": "/Image/Husbando/Roswall_L_Mathers.jpg",
         "name": "Roswaal L Mathers",
         "hair_color": "Blau",
         "Characteristic_properties": "Sehr mächtig, hat viele Geheimnisse. Klaun"
     },
     {
+        "img": "/Image/Husbando/Brando_Dio.jpg",
         "name": "Brando Dio",
         "hair_color": "Gelb",
         "Characteristic_properties": "Vampir, sehr stark, hat den Za Warudo!. Tötet ohne zu zögern"
     },
     {
-        "name": "Akerman Levi",
+        "img": "/Image/Husbando/Ackerman_Levi.jpg",
+        "name": "Ackerman Levi",
         "hair_color": "Schwarz",
         "Characteristic_properties": "Sehr stark, hat gegen den Beast Titan gekämpft. ist im auftrag von Erwin Smith"
     },
     {
+        "img": "/Image/Husbando/Hisoka.jpg",
         "name": "Hisoka",
         "hair_color": "Rosa",
         "Characteristic_properties": "Mag es zu kämpfen, ist ein Magier. geistig gestört"

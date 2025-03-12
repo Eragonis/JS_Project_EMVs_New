@@ -1,7 +1,6 @@
 const button = document.getElementById("darkModeToggle");
 const body = document.body;
 
-// Funktion zum Text des Buttons aktualisieren
 function updateButtonText() {
    if (body.classList.contains("dark-mode")) {
       button.innerHTML = "<strong>Light Mode</strong>";
@@ -31,7 +30,6 @@ button.addEventListener("mouseenter", () => {
    button.style.top = `${randomY}px`;
 });
 
-// Dark Mode Toggle beim Klick
 button.addEventListener("click", () => {
    body.classList.toggle("dark-mode");
 
@@ -45,93 +43,113 @@ button.addEventListener("click", () => {
 });
 
 // Tastatur lokierung
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
    e.preventDefault(); // Verhindert jegliche Tastatureingabe
 });
 
-document.addEventListener('wheel', function(e) {
+document.addEventListener('wheel', function (e) {
    e.preventDefault(); // Verhindert das Scrollen mit der Maus
 }, { passive: false });
 
 // taskleiste deaktivieren
 function goFullscreen() {
    if (document.documentElement.requestFullscreen) {
-       document.documentElement.requestFullscreen();
+      document.documentElement.requestFullscreen();
    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-       document.documentElement.mozRequestFullScreen();
+      document.documentElement.mozRequestFullScreen();
    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome/Safari
-       document.documentElement.webkitRequestFullscreen();
+      document.documentElement.webkitRequestFullscreen();
    } else if (document.documentElement.msRequestFullscreen) { // Edge
-       document.documentElement.msRequestFullscreen();
+      document.documentElement.msRequestFullscreen();
    }
 }
-
 goFullscreen();
 
-document.querySelectorAll('input, button, a, textarea').forEach(function(el) {
+// Zeige die Nachricht, dass der Benutzer klicken soll
+window.onload = function () {
+   document.getElementById('fullscreenMessage').style.display = 'block';
+};
+
+// Wenn der Benutzer auf die Nachricht klickt, gehe in den Vollbildmodus
+document.getElementById('fullscreenMessage').onclick = function () {
+   goFullscreen();
+   this.style.display = 'none';  // Verstecke die Nachricht nach dem Klick
+};
+
+
+document.querySelectorAll('input, button, a, textarea').forEach(function (el) {
    el.setAttribute('tabindex', '-1');  // Entfernt die Fokussierung durch die Tastatur
 });
 
 // Rechsklick maus verhindern
-document.addEventListener('contextmenu', function(e) {
+document.addEventListener('contextmenu', function (e) {
    e.preventDefault();  // Verhindert das Öffnen des Kontextmenüs
 });
 
 
-        // Funktion, um die Benachrichtigung anzuzeigen
-        function showNotification(message) {
-         var notification = document.getElementById('notification');
-         notification.textContent = message;
-         notification.style.display = 'block';  // Zeigt die Benachrichtigung an
+// Funktion, um die Benachrichtigung anzuzeigen
+function showNotification(message) {
+   var notification = document.getElementById('notification');
+   notification.textContent = message;
+   notification.style.display = 'block';  // Zeigt die Benachrichtigung an
 
-         // Benachrichtigung nach 2 Sekunden ausblenden
-         setTimeout(function() {
-             notification.style.display = 'none';
-         }, 2000);
-     }
+   // Benachrichtigung nach 2 Sekunden ausblenden
+   setTimeout(function () {
+      notification.style.display = 'none';
+   }, 2000);
+}
 
-     document.addEventListener('keydown', function(e) {
-      // Verhindert "Ctrl + W" (Schließen des Tabs)
-      if (e.ctrlKey && e.key === 'w') {
-          e.preventDefault();
-          showNotification("Funktioniert nicht!");
+document.addEventListener('keydown', function (e) {
+   // Verhindert "Ctrl + W" (Schließen des Tabs)
+   if (e.ctrlKey && e.key === 'w') {
+      e.preventDefault();
+      showNotification("HAHAHA klappt nicht   ͡🥴!");
+   }
+
+   document.addEventListener('keydown', function (e) {
+      // Verhindert "Ctrl + Shift + I" (Entwicklertools öffnen)
+      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+         e.preventDefault();
+         showNotification("HAHAHA klappt nicht   ͡🥴!");
       }
-  
-      // Verhindert "F11" (Vollbildmodus)
-      document.addEventListener('keydown', function(e) {
-         if (e.key === 'F11') {
-             e.preventDefault();
-             var password = prompt("Bitte gib das Passwort ein, um diese Funktion zu aktivieren:");
-             if (password === 'deinPasswort') {
-                 alert("Funktion aktiviert!");
-             } else {
-                 alert("Funktion blockiert!");
-             }
+   });
+
+   // Verhindert "F11" (Vollbildmodus)
+   document.addEventListener('keydown', function (e) {
+      if (e.key === 'F11') {
+         e.preventDefault();
+         var password = prompt("Bitte gib das Passwort ein, um diese Funktion zu aktivieren:");
+         if (password === 'deinPasswort') {
+            alert("Funktion aktiviert!");
+         } else {
+            alert("Funktion blockiert!");
          }
-     });
-  
-      // Verhindert "F5" (Neuladen)
-      if (e.key === 'F5') {
-          e.preventDefault();
-          showNotification("Funktioniert nicht!");
       }
-  });
+   });
 
-  if (screen.orientation && screen.orientation.lock) {
-   screen.orientation.lock('landscape').then(function() {
-       console.log("Vollbildmodus wurde blockiert.");
-   }).catch(function(error) {
-       console.log("Fehler beim Blockieren des Vollbildmodus:", error);
+   // Verhindert "F5" (Neuladen)
+   if (e.key === 'F5') {
+      e.preventDefault();
+      showNotification("HAHAHA klappt nicht   ͡🥴!");
+   }
+});
+
+if (screen.orientation && screen.orientation.lock) {
+   screen.orientation.lock('landscape').then(function () {
+      console.log("Vollbildmodus wurde blockiert.");
+   }).catch(function (error) {
+      console.log("Fehler beim Blockieren des Vollbildmodus:", error);
    });
 }
 
 window.addEventListener('beforeunload', function (e) {
    // Browser fordert den Benutzer auf, bevor er die Seite verlässt
    e.preventDefault();  // Dies ist notwendig, um das Standardverhalten zu verhindern
-   e.returnValue = '';   // Einige Browser benötigen dies, um eine Warnung anzuzeigen
+   e.returnValue = '';
+   alert('Nope!');   // Einige Browser benötigen dies, um eine Warnung anzuzeigen
 });
 
 function playVideo() {
    var video = document.getElementById('videoPlayer');
    video.play(); // Video starten
- }
+}

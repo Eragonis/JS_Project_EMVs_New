@@ -28,7 +28,8 @@ button.testerei {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: top 1.2s ease, left 1.2s ease; /* Hier wird die langsame Bewegung definiert */
+    transition: top 1.2s ease, left 1.2s ease;
+    /* Hier wird die langsame Bewegung definiert */
 }
 
 button.testerei:hover {
@@ -36,34 +37,108 @@ button.testerei:hover {
 }
 
 img.home {
-    transition: transform 0.3s ease;  
+    transition: transform 0.3s ease;
 }
+
 img.home:hover {
     transform: rotate(900deg);
 }
-button.troll{
+
+button.troll {
     background-color: transparent;
 }
-#troll {
+
+div#troll {
     position: absolute;
     margin-left: 50%;
     margin-top: 20%;
+    height: 200px;
+    width: 450px;
+    border: #b494ea 2px solid;
+    animation: blink 10s infinite;
+    /* Hier wird die Animation aufgerufen */
+
+}
+
+@keyframes blink {
+    0% {
+        border-color: #b494ea;
+    }
+
+    10% {
+        border-color: transparent;
+    }
+
+    20% {
+        border-color: transparent;
+    }
+
+    30% {
+        border-color: transparent;
+    }
+
+    40% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    60% {
+        border-color: transparent;
+    }
+
+    70% {
+        border-color: transparent;
+    }
+
+    80% {
+        border-color: transparent;
+    }
+
+    90% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: transparent;
+    }
 }
 
 body {
-    overflow: hidden; /* Verhindert Scrollen */
+    overflow: hidden;
+    /* Verhindert Scrollen */
 }
 
-        /* Stil für die Benachrichtigung */
-        #notification {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            display: none;  /* Standardmäßig unsichtbar */
-        }
+/* Stil für die Benachrichtigung */
+#notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: none;
+    /* Standardmäßig unsichtbar */
+}
+
+
+
+#fullscreenMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+}
