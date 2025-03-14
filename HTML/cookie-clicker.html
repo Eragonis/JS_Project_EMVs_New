@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>How to Cure Cookie Clicker</title>
+    <title>How to cure Cookie Clicker</title>
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="shortcut icon" href="/Image/GIF/anime-rikka-finger-sping.gif" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +19,9 @@
         const body = document.body;
 
         function updateButtonText() {
-            if (body.classList.contains("dark-mode")) {
-                button.innerHTML = "<strong>Light Mode</strong>";
-            } else {
-                button.innerHTML = "<strong>Dark Mode</strong>";
-            }
+            button.innerHTML = body.classList.contains("dark-mode") ? "<strong>Light Mode</strong>" : "<strong>Dark Mode</strong>";
         }
 
-        // Dark Mode aktivieren, wenn bereits gespeichert
         if (localStorage.getItem("darkMode") === "enabled") {
             body.classList.add("dark-mode");
         }
@@ -34,32 +29,24 @@
 
         button.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
-
-            // Dark Mode Zustand speichern
-            if (body.classList.contains("dark-mode")) {
-                localStorage.setItem("darkMode", "enabled");
-            } else {
-                localStorage.setItem("darkMode", "disabled");
-            }
+            localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
             updateButtonText();
         });
     </script>
     <h1 ID="title"><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">Cookie Clicker</a></h1>
 </div>
-    <a href="javascript:void(0)" onClick="cookieClick()">
+<a href="javascript:void(0)" onClick="cookieClick()">
     <img src="/Image/Cookie_Clicker/Cookie.png" alt="Cookie Clicker" class="cookie">
-    </a>
-    <p class="main-paragraph">Du hast schon <span id="cookies">0</span> Cookies</p>
-    <p id="progress"></p>
-    <p id="clicker_gameplay"></p>
-    <a href="javascript:void(0)" onclick="playVideo()">
-    </a>
-    <video id="videoPlayer" width="600" height="auto" autoplay loop style="visibility: hidden; position: absolute;">
-        <source src="/Image/sound/cookie_clicker_gameplay.mp4" type="video/mp4">
-    </video>
-    <video id="musicPlayer" width="0" height="0" autoplay loop style="visibility: hidden; position: absolute;">
-        <source src="/Image/sound/cookie_clicker_gameplay_music.mp4" type="video/mp4">
-    </video>
+</a>
+<p class="main-paragraph">Du hast schon <span id="cookies">0</span> Cookies</p>
+<p id="progress"></p>
+<p id="clicker_gameplay"></p>
+<video id="videoPlayer" width="600" height="auto" loop style="visibility: hidden; position: absolute;">
+    <source src="/Image/sound/cookie_clicker_gameplay.mp4" type="video/mp4">
+</video>
+<video id="musicPlayer" width="0" height="0" loop style="visibility: hidden; position: absolute;">
+    <source src="/Image/sound/cookie_clicker_gameplay_music.mp4" type="video/mp4">
+</video>
 <script>
     function wait(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -70,13 +57,17 @@
         video.style.visibility = "visible";
         video.style.position = "absolute";
         video.muted = true;
-        video.play(); // Video starten
+        video.play();
     }
 
+    let musicPlaying = false;
     function playMusic() {
         var music = document.getElementById('musicPlayer');
         music.volume = 0.25;
-        music.play();
+        if (!musicPlaying) {
+            music.play();
+            musicPlaying = true;
+        }
     }
 
     let cookies = 0;
@@ -92,25 +83,21 @@
 
         document.getElementById("cookies").innerText = cookies;
 
-        // **Neuer Code: Reihenfolge korrigiert**
-        if (cookies >= 100) {
+        if (cookies >= 100 && !musicPlaying) {
             document.getElementById("progress").innerText = "Gratuliere, du hast schon 100 Cookies. Ab jetzt hast du Musik";
             playMusic();
         }
-        else if (cookies >= 50) {
+        else if (cookies >= 50 && !passiveCookieGainActive) {
             document.getElementById("progress").innerText = "Gratuliere, du hast schon 50 Cookies. Ab jetzt wird passiv immer ein Cookie pro Sekunde geklickt";
-
-            if (!passiveCookieGainActive) {
-                passiveCookieGainActive = true; // Sicherstellen, dass nur ein Interval läuft
-                setInterval(() => {
-                    if (isNaN(cookies)) {
-                        cookies = 0;
-                    }
-                    cookies++;
-                    console.log(cookies);
-                    document.getElementById("cookies").innerText = cookies;
-                }, 1000);
-            }
+            passiveCookieGainActive = true;
+            setInterval(() => {
+                if (isNaN(cookies)) {
+                    cookies = 0;
+                }
+                cookies++;
+                console.log(cookies);
+                document.getElementById("cookies").innerText = cookies;
+            }, 1000);
         }
         else if (cookies >= 25) {
             document.getElementById("progress").innerText = "Gratuliere, du hast schon 25 Cookies";
